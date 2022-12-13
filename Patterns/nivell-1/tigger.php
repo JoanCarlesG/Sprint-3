@@ -1,10 +1,6 @@
-/*
-Imprimeix en pantalla múltiples vegades el rugit de Tigger.
-Afegeix un mètode getCounter () que retorni el nombre de vegades que Tigger ha realitzat rugits.
-*/
-
 <?php
 class Tigger{
+        static $counter = 0;
         private static $instances = [];
 
         //El constructor ha de ser private per evitar que es creïn noves instàncies de la classe
@@ -12,12 +8,9 @@ class Tigger{
         private function __construct()
         {
                 echo "Building character..." . PHP_EOL;
+                echo "<br>";
         }
 
-        public function roar()
-        {
-                echo "Grrr!" . PHP_EOL;
-        }
         //No es pot clonar o serialitzar, per això s'edita la funció clone() i wakeup() amb protected o private
         protected function __clone(){}
         protected function __wakeup(){}
@@ -33,7 +26,17 @@ class Tigger{
 
                 return self::$instances[$class];
         }
+
+        public static function roar()
+        {
+                echo "Grrr!" . PHP_EOL;
+                echo "<br>";
+                static::$counter++;
+
+        }
+        public static function getCounter()
+        {
+                echo "Tigger roared ".static::$counter." times";
+        }
 }
-
-
 ?>

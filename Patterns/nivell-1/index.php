@@ -7,9 +7,15 @@
 </head>
 <body>
     SINGLETON PRACTICE
+    <br>
     <?php 
     require ("tigger.php");
-    
+    Tigger::getInstance();
+    Tigger::roar();
+    Tigger::roar();
+    Tigger::roar();
+    Tigger::roar();
+    Tigger::getCounter()
     ?>
 </body>
 </html>
